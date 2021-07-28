@@ -1,11 +1,19 @@
 import './App.css';
+
+import AddNote from './components/AddNote/AddNote';
 import Header from './components/Header/Header';
+import NotesList from './components/NotesList/NotesList';
+import { NotesContextProvider } from './contexts/notes-context';
 
 function App() {
   return (
-    <div className="App">
+    <>
       <Header />
-    </div>
+      <NotesContextProvider>
+        <AddNote />
+        <NotesList />
+      </NotesContextProvider>
+    </>
   );
 }
 
