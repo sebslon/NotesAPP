@@ -3,7 +3,7 @@ import React, { createContext, useReducer } from "react";
 interface Note {
     id: number,
     text: string,
-    date: string,
+    date: Date,
 }
 
 type ActionType = 

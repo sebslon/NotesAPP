@@ -19,7 +19,7 @@ export default function AddNote() {
             payload: {
                 id: state[state.length - 1]?.id + 1 || 0,
                 text,
-                date: new Date().toLocaleDateString(),
+                date: new Date(),
             }
         });
 
