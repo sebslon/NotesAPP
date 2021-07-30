@@ -1,0 +1,33 @@
+.single-note {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 0 0.5em;
+}
+
+.single-note__buttons {
+  margin: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.single-note__content {
+  background-color: var(--noteBackground);
+  text-align: left;
+  padding: 0.5rem;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.single-note__date {
+  margin-left: auto;
+  margin-top: 1em;
+  font-size: 0.8em;
+}
+
+.note__not-found {
+  font-size: 40px;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: bold;
+}

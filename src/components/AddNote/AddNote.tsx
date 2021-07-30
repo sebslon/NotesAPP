@@ -1,12 +1,13 @@
 import "./AddNote.css";
+
 import { useContext, useState } from "react";
 
-import { NotesContext } from "../../contexts/notes-context";
 import { Button } from "../Button/Button";
+import { NotesContext } from "../../contexts/notes-context";
 
 export const AddNote = () => {
-  const { state, dispatch } = useContext(NotesContext);
   const [text, setText] = useState("");
+  const { state, dispatch } = useContext(NotesContext);
 
   const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setText(e.target.value);
@@ -36,7 +37,7 @@ export const AddNote = () => {
         onChange={handleTextChange}
         required
       ></textarea>
-      <Button className="note__add-btn" type="submit">
+      <Button className="primary-btn" type="submit">
         Add note
       </Button>
     </form>

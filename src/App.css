@@ -1,8 +1,16 @@
 :root {
-    --lightGray: #d4cccb;
+    --white: #fff;
+    --lightGray: #c5c5c5;
+    
     --delete: #bf231b;
+    --noteBackground: #c5c5c5;
 }
 
 body {
-    background-color: gainsboro;
+    background-color: rgb(255, 255, 255);
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
 }
