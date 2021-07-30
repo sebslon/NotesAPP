@@ -13,11 +13,11 @@ export const NotesList = () => {
     .sort((a, b) => b.date.getTime() - a.date.getTime());
 
   return (
-    <div className="notes_list">
+    <div className="notes_list" data-testid="notes-list">
       <p className="notes-list__title">Latest Notes</p>
       {sorted.map((note) => (
         <Note key={note.id} text={note.text} date={note.date} id={note.id} />
       ))}
     </div>
   );
-}
+};

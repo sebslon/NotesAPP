@@ -26,14 +26,20 @@ export const Note = ({ text, date, id }: NoteProps) => {
   };
 
   return (
-    <div className="note">
+    <div className="note" data-testid="note">
       <div className="note__content">
-        <Markdown>{text}</Markdown>
+        <Markdown data-testid="note-text">{text}</Markdown>
         <Link href={`/notes/${id}`}>
-          <span className="note__date">{date.toLocaleDateString()}</span>
+          <span className="note__date" data-testid="note-date">
+            {date.toLocaleDateString()}
+          </span>
         </Link>
       </div>
-      <Button onClick={handleDelete} className="delete-btn note__delete-btn">
+      <Button
+        onClick={handleDelete}
+        className="delete-btn note__delete-btn"
+        data-testid="deletenote-btn"
+      >
         Delete note
       </Button>
     </div>

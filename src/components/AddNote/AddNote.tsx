@@ -2,8 +2,8 @@ import "./AddNote.css";
 
 import { useContext, useState } from "react";
 
-import { Button } from "../Button/Button";
-import { NotesContext } from "../../contexts/notes-context";
+import { Button } from "components/Button/Button";
+import { NotesContext } from "contexts/notes-context";
 
 export const AddNote = () => {
   const [text, setText] = useState("");
@@ -29,15 +29,16 @@ export const AddNote = () => {
   };
 
   return (
-    <form className="addnote" onSubmit={handleSubmit}>
+    <form className="addnote" onSubmit={handleSubmit} data-testid="addnote-form">
       <p>Note</p>
       <textarea
         placeholder="Enter your note.."
         value={text}
         onChange={handleTextChange}
         required
+        data-testid="addnote-textarea"
       ></textarea>
-      <Button className="primary-btn" type="submit">
+      <Button className="primary-btn" type="submit" data-testid="addnote-btn">
         Add note
       </Button>
     </form>
