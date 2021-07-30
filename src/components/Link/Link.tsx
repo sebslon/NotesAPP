@@ -1,5 +1,7 @@
 import "./Link.css";
 
+import { changePath } from "../../utils/change-path";
+
 interface LinkProps {
   href: string;
 }
@@ -7,10 +9,8 @@ interface LinkProps {
 export const Link: React.FC<LinkProps> = ({ href, children }) => {
   const handleOnClick = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
-    window.history.pushState({}, "", href);
 
-    const changeURLEvent = new PopStateEvent("popstate");
-    window.dispatchEvent(changeURLEvent);
+    changePath(href);
   };
 
   return (
