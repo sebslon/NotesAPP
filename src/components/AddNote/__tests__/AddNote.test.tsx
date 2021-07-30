@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { AddNote } from "../AddNote";
+import { AddNote } from "components";
 import { NotesContextProvider } from "contexts/notes-context";
 
 describe("<AddNote />", () => {

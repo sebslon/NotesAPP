@@ -3,9 +3,9 @@ import "./Note.css";
 import { useContext } from "react";
 import Markdown from "markdown-to-jsx";
 
-import { Button } from "../Button/Button";
-import { Link } from "../Link/Link";
-import { NotesContext } from "../../contexts/notes-context";
+import { Button } from "components";
+import { Link } from "components";
+import { NotesContext } from "contexts/notes-context";
 
 interface NoteProps {
   id: number;

@@ -2,8 +2,8 @@ import "./NotesList.css";
 
 import { useContext } from "react";
 
-import { Note } from "../Note/Note";
-import { NotesContext } from "../../contexts/notes-context";
+import { Note } from "components";
+import { NotesContext } from "contexts/notes-context";
 
 export const NotesList = () => {
   const { state } = useContext(NotesContext);

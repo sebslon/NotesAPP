@@ -1,6 +1,6 @@
 import React, { createContext, useReducer } from "react";
 
-import { lorem } from "../utils/constants";
+import { lorem } from "utils/constants";
 
 interface Note {
   id: number;

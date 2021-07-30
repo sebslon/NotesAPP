@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { Link } from "../Link";
+import { Link } from "components";
 
 describe("<Link />", () => {
   it("Should change location pathname when clicked", () => {

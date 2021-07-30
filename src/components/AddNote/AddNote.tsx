@@ -2,7 +2,7 @@ import "./AddNote.css";
 
 import { useContext, useState } from "react";
 
-import { Button } from "components/Button/Button";
+import { Button } from "components";
 import { NotesContext } from "contexts/notes-context";
 
 export const AddNote = () => {

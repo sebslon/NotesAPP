@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 
-import { Header } from "../Header";
+import { Header } from "components";
 
 describe("<Header />", () => {
   it("Renders <Header /> with name of the app", () => {

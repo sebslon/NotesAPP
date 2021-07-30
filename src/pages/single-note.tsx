@@ -2,10 +2,10 @@ import "./styles/single-note.css";
 
 import Markdown from "markdown-to-jsx";
 import { useContext } from "react";
-import { Button } from "../components/Button/Button";
 
+import { Button } from "components";
 import { NotesContext } from "../contexts/notes-context";
-import { changePath } from "../utils/change-path";
+import { changePath } from "utils/change-path";
 
 interface SingleNotePageProps {
   id: number;

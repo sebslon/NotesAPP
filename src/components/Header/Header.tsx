@@ -1,6 +1,6 @@
 import "./Header.css";
 
-import { Link } from "../Link/Link";
+import { Link } from "components";
 
 export const Header = () => {
   return (

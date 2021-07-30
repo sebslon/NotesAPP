@@ -1,4 +1,4 @@
-import { usePath } from "../hooks/use-path";
+import { usePath } from "hooks/use-path";
 
 interface RouteProps {
   path: string;

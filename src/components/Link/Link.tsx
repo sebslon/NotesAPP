@@ -1,6 +1,6 @@
 import "./Link.css";
 
-import { changePath } from "../../utils/change-path";
+import { changePath } from "utils/change-path";
 
 interface LinkProps {
   href: string;

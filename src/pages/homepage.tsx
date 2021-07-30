@@ -1,5 +1,5 @@
-import { AddNote } from "../components/AddNote/AddNote"
-import { NotesList } from "../components/NotesList/NotesList"
+import { AddNote } from "components";
+import { NotesList } from "components"
 
 export const HomePage = () => {
     return (
