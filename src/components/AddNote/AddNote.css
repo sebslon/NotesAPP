@@ -3,12 +3,6 @@
     margin: 0 auto;
 }
 
-.addnote__btn {
-    display: block;
-    margin: 0 auto;
-    padding: 0.5rem 0.8rem;
-}
-
 .addnote > textarea {
     width: 100%;
     height: 200px;

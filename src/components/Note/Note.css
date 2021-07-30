@@ -13,10 +13,6 @@
 
 .note > button {
     align-self: flex-end;
-    padding: 0.5rem;
-    background-color: pink;
-    border: none;
-    border-radius: 4px;
 }
 
 .note__date {

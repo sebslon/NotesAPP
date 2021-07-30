@@ -1,3 +1,8 @@
+:root {
+    --lightGray: #d4cccb;
+    --delete: #bf231b;
+}
+
 body {
     background-color: gainsboro;
 }

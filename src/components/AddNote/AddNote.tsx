@@ -2,6 +2,7 @@ import "./AddNote.css";
 import { useContext, useState } from "react";
 
 import { NotesContext } from "../../contexts/notes-context";
+import { Button } from "../Button/Button";
 
 export const AddNote = () => {
   const { state, dispatch } = useContext(NotesContext);
@@ -35,9 +36,9 @@ export const AddNote = () => {
         onChange={handleTextChange}
         required
       ></textarea>
-      <button className="addnote__btn" type="submit">
+      <Button className="note__add-btn" type="submit">
         Add note
-      </button>
+      </Button>
     </form>
   );
 };
