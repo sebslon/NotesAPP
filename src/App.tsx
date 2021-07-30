@@ -1,17 +1,25 @@
-import './App.css';
+import "./App.css";
 
-import AddNote from './components/AddNote/AddNote';
-import Header from './components/Header/Header';
-import NotesList from './components/NotesList/NotesList';
-import { NotesContextProvider } from './contexts/notes-context';
+import { HomePage } from "./pages/homepage";
+import { SingleNotePage } from "./pages/single-note";
+import { Header } from "./components/Header/Header";
+import { Route } from "./components/Route";
+import { usePath } from "./hooks/use-path";
+import { NotesContextProvider } from "./contexts/notes-context";
 
 function App() {
+  const { currentPath } = usePath();
+
   return (
     <>
       <Header />
       <NotesContextProvider>
-        <AddNote />
-        <NotesList />
+        <Route path="/">
+          <HomePage />
+        </Route>
+        <Route path={`/notes/${currentPath.slice(7)}`}>
+          <SingleNotePage id={+currentPath.slice(7)} />
+        </Route>
       </NotesContextProvider>
     </>
   );

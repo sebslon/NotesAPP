@@ -10,7 +10,10 @@ type ActionType =
     | { type: "ADD_NOTE", payload: Note }
     | { type: "DELETE_NOTE", payload: { id: number } }
 
-const initialState: Note[] = [];
+const initialState: Note[] = [
+    { id: 0, text: 'sss', date: new Date()},
+    { id: 1, text: 'ssaas', date: new Date()},
+];
 
 export const NotesContext = createContext<{
     state: Note[];
