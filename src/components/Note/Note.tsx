@@ -3,6 +3,7 @@ import { FormEvent, useContext } from 'react';
 
 import { Link } from '../Link/Link';
 import { NotesContext } from '../../contexts/notes-context';
+import Markdown from 'markdown-to-jsx';
 
 interface NoteProps {
     id: number;
@@ -24,7 +25,7 @@ export const Note = ({ text, date, id }: NoteProps) => {
 
     return (
         <div className="note">
-            <p>{text}</p>
+            <Markdown>{text}</Markdown>
             <button onClick={handleDelete}>Delete note</button>
             <Link href={`/notes/${id}`}>
                 <span className="note__date">{date.toLocaleDateString()}</span>
