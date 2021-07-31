@@ -17,6 +17,7 @@
   border-radius: 5px;
   display: flex;
   flex-direction: column;
+  word-break: break-word;
 }
 
 .single-note__date {
