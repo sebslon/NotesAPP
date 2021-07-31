@@ -1,11 +1,9 @@
 import "./Note.css";
 
-import { useContext } from "react";
 import Markdown from "markdown-to-jsx";
 
-import { Button } from "components";
 import { Link } from "components";
-import { NotesContext } from "contexts/notes-context";
+import { DeleteButton } from "components";
 
 interface NoteProps {
   id: number;
@@ -14,17 +12,6 @@ interface NoteProps {
 }
 
 export const Note = ({ text, date, id }: NoteProps) => {
-  const { dispatch } = useContext(NotesContext);
-
-  const handleDelete: React.MouseEventHandler<HTMLButtonElement> = (e) => {
-    e.preventDefault();
-
-    dispatch({
-      type: "DELETE_NOTE",
-      payload: { id },
-    });
-  };
-
   return (
     <div className="note" data-testid="note">
       <div className="note__content">
@@ -35,13 +22,12 @@ export const Note = ({ text, date, id }: NoteProps) => {
           </span>
         </Link>
       </div>
-      <Button
-        onClick={handleDelete}
+      <DeleteButton
         className="delete-btn note__delete-btn"
-        data-testid="deletenote-btn"
+        noteId={id}
       >
         Delete note
-      </Button>
+      </DeleteButton>
     </div>
   );
 };

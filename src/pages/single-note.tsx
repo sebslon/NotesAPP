@@ -3,8 +3,8 @@ import "./styles/single-note.css";
 import Markdown from "markdown-to-jsx";
 import { useContext } from "react";
 
-import { Button } from "components";
-import { NotesContext } from "../contexts/notes-context";
+import { Button, DeleteButton } from "components";
+import { NotesContext } from "contexts/notes-context";
 import { changePath } from "utils/change-path";
 
 interface SingleNotePageProps {
@@ -16,19 +16,8 @@ const goToHomePage = () => {
 };
 
 export const SingleNotePage = ({ id }: SingleNotePageProps) => {
-  const { state, dispatch } = useContext(NotesContext);
+  const { state } = useContext(NotesContext);
   const [note] = state.filter((note) => note.id === id);
-
-  const handleDelete: React.MouseEventHandler<HTMLButtonElement> = (e) => {
-    e.preventDefault();
-
-    dispatch({
-      type: "DELETE_NOTE",
-      payload: { id },
-    });
-
-    changePath("/");
-  };
 
   return note ? (
     <div className="single-note">
@@ -36,13 +25,13 @@ export const SingleNotePage = ({ id }: SingleNotePageProps) => {
         <Button className="primary-btn" onClick={goToHomePage}>
           Go back
         </Button>
-        <Button className="delete-btn" onClick={handleDelete}>
+        <DeleteButton className="delete-btn" noteId={id}>
           Delete note
-        </Button>
+        </DeleteButton>
       </div>
 
       <div className="single-note__content">
-        <Markdown className="">{note.text}</Markdown>
+        <Markdown>{note.text}</Markdown>
         <span className="single-note__date">
           {note.date.toLocaleDateString()}
         </span>
