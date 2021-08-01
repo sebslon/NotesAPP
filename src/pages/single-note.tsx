@@ -20,7 +20,7 @@ export const SingleNotePage = ({ id }: SingleNotePageProps) => {
   const [note] = state.filter((note) => note.id === id);
 
   return note ? (
-    <div className="single-note">
+    <div className="single-note" data-testid="single-note">
       <div className="single-note__buttons">
         <Button className="primary-btn" onClick={goToHomePage}>
           Go back
@@ -45,9 +45,9 @@ export const SingleNotePage = ({ id }: SingleNotePageProps) => {
 const NoteNotFound = ({ id }: { id: number | string }) => {
   return (
     <>
-      <div className="note__not-found">
+      <div className="note__not-found" data-testid="not-found">
         <p>Note with ID: {id} doesn't exist :(</p>
-        <button onClick={goToHomePage}>Go back to homepage</button>
+        <Button onClick={goToHomePage}>Go back to homepage</Button>
       </div>
     </>
   );
