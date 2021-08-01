@@ -1,11 +1,11 @@
 import "./App.css";
 
-import { HomePage } from "./pages/homepage";
-import { SingleNotePage } from "./pages/single-note";
-import { Header } from "./components/Header/Header";
-import { Route } from "./components/Route";
-import { usePath } from "./hooks/use-path";
-import { NotesContextProvider } from "./contexts/notes-context";
+import { HomePage } from "pages/homepage";
+import { SingleNotePage } from "pages/single-note";
+import { Header } from "components";
+import { Route } from "components";
+import { usePath } from "hooks/use-path";
+import { NotesContextProvider } from "contexts/notes-context";
 
 function App() {
   const { currentPath } = usePath();
