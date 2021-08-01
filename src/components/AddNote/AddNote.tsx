@@ -29,7 +29,7 @@ export const AddNote = () => {
   };
 
   return (
-    <form className="addnote" onSubmit={handleSubmit} data-testid="addnote-form">
+    <form className="addnote" onSubmit={handleSubmit}>
       <p>Note</p>
       <textarea
         placeholder="Enter your note.."
@@ -38,7 +38,7 @@ export const AddNote = () => {
         required
         data-testid="addnote-textarea"
       ></textarea>
-      <Button className="primary-btn" type="submit" data-testid="addnote-btn">
+      <Button className="primary-btn" type="submit">
         Add note
       </Button>
     </form>

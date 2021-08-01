@@ -6,10 +6,11 @@ import { HomePage } from "pages/homepage";
 
 describe("<HomePage />", () => {
   it("Should render AddNote component, and NotesList", () => {
-    const { getByTestId } = render(<HomePage />);
+    const { getByTestId, getByRole } = render(<HomePage />);
 
     expect(getByTestId("notes-list")).toBeInTheDocument();
-    expect(getByTestId("addnote-form")).toBeInTheDocument();
+    expect(getByRole("button", { name: /add note/i})).toBeInTheDocument();
+    expect(getByRole("textbox")).toBeInTheDocument();
   });
 
   it("Should render two example notes", () => {
@@ -20,7 +21,7 @@ describe("<HomePage />", () => {
   });
 
   it("Should add new note when AddNote is submitted with value", () => {
-    const { getByTestId, getAllByTestId, getByText } = render(
+    const { getByTestId, getAllByTestId, getByText, getByRole } = render(
       <NotesContextProvider>
         <HomePage />
       </NotesContextProvider>
@@ -32,9 +33,7 @@ describe("<HomePage />", () => {
     expect(notes.length).toBe(2);
 
     userEvent.type(textarea, "example text");
-    expect(textarea.value).toBe("example text");
-    userEvent.click(getByTestId("addnote-btn"));
-    expect(textarea.value).toBe("");
+    userEvent.click(getByRole("button", { name: /add note/i}));
 
     notes = getAllByTestId("note");
 
@@ -43,7 +42,7 @@ describe("<HomePage />", () => {
   });
 
   it("Should remove note when delete button is clicked", () => {
-    const { getAllByTestId } = render(
+    const { getAllByTestId, getAllByRole } = render(
       <NotesContextProvider>
         <HomePage />
       </NotesContextProvider>
@@ -52,7 +51,7 @@ describe("<HomePage />", () => {
 
     expect(notes.length).toBe(2);
 
-    userEvent.click(getAllByTestId("deletenote-btn")[0]);
+    userEvent.click(getAllByRole("button", { name: /delete note/i})[0]);
 
     notes = getAllByTestId("note");
 

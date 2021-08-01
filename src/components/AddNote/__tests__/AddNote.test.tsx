@@ -5,19 +5,19 @@ import { AddNote } from "components";
 import { NotesContextProvider } from "contexts/notes-context";
 
 describe("<AddNote />", () => {
-  it("Should clean textarea after submitting", () => {
-    const { getByTestId } = render(
+  it("Should clean textarea after submitting", async () => {
+    const { getByRole } = render(
       <NotesContextProvider>
         <AddNote />
       </NotesContextProvider>
     );
 
-    const textarea = getByTestId("addnote-textarea") as HTMLTextAreaElement;
+    const textarea = await getByRole("textbox") as HTMLTextAreaElement;
 
     userEvent.type(textarea, "example text");
     expect(textarea.value).toBe("example text");
 
-    userEvent.click(getByTestId("addnote-btn"));
+    userEvent.click(getByRole("button", { name: "Add note"}));
     expect(textarea.value).toBe("");
   });
 });

@@ -4,9 +4,9 @@ import { Header } from "components";
 
 describe("<Header />", () => {
   it("Renders <Header /> with name of the app", () => {
-    const { getByText, getByTestId } = render(<Header />);
+    const { getByText, getByRole } = render(<Header />);
 
-    expect(getByTestId("header")).toBeInTheDocument();
+    expect(getByRole("banner")).toBeInTheDocument();
     expect(getByText(/Notes APP/i)).toBeInTheDocument();
   });
 });

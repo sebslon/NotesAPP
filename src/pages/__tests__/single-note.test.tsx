@@ -5,15 +5,17 @@ import { SingleNotePage } from "pages/single-note";
 import { NotesContextProvider } from "contexts/notes-context";
 
 describe("<SingleNotePage />", () => {
-  it("Should render a specified note if it exists", () => {
-    const { getByText, getByTestId } = render(<SingleNotePage id={0} />);
+  it("Should render a specified note, with buttons to delete and go back", () => {
+    const { getByText, getByTestId, getByRole } = render(<SingleNotePage id={0} />);
 
+    expect(getByRole("button", { name: /delete note/i})).toBeInTheDocument();
+    expect(getByRole("button", { name: /go back/i})).toBeInTheDocument();
     expect(getByText(/example note/i)).toBeInTheDocument();
     expect(getByTestId('single-note')).toBeInTheDocument();
   });
 
   it("After deleting - should change path to homepage, note should be deleted", () => {
-    const { queryByText, getByTestId } = render(
+    const { queryByText, getByRole } = render(
       <NotesContextProvider>
         <SingleNotePage id={0} />
       </NotesContextProvider>
@@ -21,7 +23,7 @@ describe("<SingleNotePage />", () => {
 
     expect(queryByText(/example note/i)).toBeInTheDocument();
 
-    userEvent.click(getByTestId("deletenote-btn"));
+    userEvent.click(getByRole("button", { name: /delete note/i}));
 
     expect(window.location.pathname).toBe("/");
     expect(queryByText(/example note/i)).toBeNull();
@@ -29,8 +31,9 @@ describe("<SingleNotePage />", () => {
 
   it("Renders not found component if given note doesn't exist", () => {
     const notExistingNoteId = 123;
-    const { getByTestId } = render(<SingleNotePage id={notExistingNoteId} />);
+    const { getByTestId, getByRole } = render(<SingleNotePage id={notExistingNoteId} />);
 
     expect(getByTestId('not-found')).toBeInTheDocument();
+    expect(getByRole("button", { name: /go back to homepage/i})).toBeInTheDocument();
   })
 });

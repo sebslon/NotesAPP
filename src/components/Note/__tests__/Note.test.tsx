@@ -5,14 +5,13 @@ import { Note } from "components";
 
 describe("<Note />", () => {
   it("Should render <Note /> with text, date and delete button", () => {
-    const { getByTestId } = render(
-      <Note text="text" date={new Date()} id={1} />
+    const { getByText, getByTestId, getByRole } = render(
+      <Note text="example text" date={new Date()} id={1} />
     );
 
-    expect(getByTestId("note")).toBeInTheDocument();
-    expect(getByTestId("note-text")).toBeInTheDocument();
     expect(getByTestId("note-date")).toBeInTheDocument();
-    expect(getByTestId("deletenote-btn")).toBeInTheDocument();
+    expect(getByText("example text")).toBeInTheDocument();
+    expect(getByRole("button", { name: /delete/i})).toBeInTheDocument();
   });
 
   it("Should redirect to single note page when date is clicked", () => {
